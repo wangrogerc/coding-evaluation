@@ -13,6 +13,7 @@ namespace MyOrganization
         private string title;
         private Employee? employee;
         private HashSet<Position> directReports;
+        
 
         public Position(string title)
         {

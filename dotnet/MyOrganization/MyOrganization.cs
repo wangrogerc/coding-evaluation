@@ -58,6 +58,7 @@ namespace MyOrganization
             org.Hire(new Name("Steve", "Dent"), "VP Infrastructure");
             org.Hire(new Name("Slick", "Willie"), "Salesperson");
             Console.WriteLine(org);
+            
         }
     }
 }

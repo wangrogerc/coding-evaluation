@@ -33,12 +33,18 @@ namespace MyOrganization
             vpt.AddDirectReport(dct);
             Position s = new Position("Salesperson");
             vps.AddDirectReport(s);
-
+            Console.WriteLine("haha");
+            Console.ReadKey();
             return ceo;
         }
 
         static void Main()
         {
+            if (System.Diagnostics.Debugger.IsAttached)
+            {
+                Console.WriteLine("Application Started");
+                Console.ReadKey();
+            }
             MyOrganization org = new MyOrganization();
             org.Hire(new Name("Bob", "Smith"), "CEO");
             org.Hire(new Name("Zaphod", "Beeblebrox"), "President");

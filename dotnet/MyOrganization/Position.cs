@@ -11,21 +11,23 @@ namespace MyOrganization
     internal class Position
     {
         private string title;
-        private Employee? employee;
+        private List<Employee> employees;
         private HashSet<Position> directReports;
         
+
 
         public Position(string title)
         {
             this.title = title;
-            employee = null;
+            employees = new List<Employee>();
             directReports = new HashSet<Position>();
+
         }
 
         public Position(String title, Employee employee) : this(title)
         {
             if (employee != null)
-                SetEmployee(employee);
+                AddEmployee(employee);
         }
 
         public String GetTitle()
@@ -33,20 +35,21 @@ namespace MyOrganization
             return title;
         }
 
-        public void SetEmployee(Employee? employee)
+        public void AddEmployee(Employee employee)
         {
-            this.employee = employee;
+            this.employees.Add(employee);      
         }
 
-        public Employee? GetEmployee()
+        public List<Employee> GetEmployees()
         {
-            return employee;
+            return employees;
         }
 
-        public Boolean IsFilled()
+        public Boolean NotEmpty()
         {
-            return employee != null;
+            return employees.Count() > 0;
         }
+
 
         public Boolean AddDirectReport(Position position)
         {
@@ -67,7 +70,7 @@ namespace MyOrganization
 
         override public string ToString()
         {
-            return title + (employee != null ? ": " + employee.ToString() : "");
+            return title + (employees != null ? ": " + employees.ToString() : "");
         }
     }
 }

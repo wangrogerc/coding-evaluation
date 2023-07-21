@@ -33,6 +33,7 @@ namespace MyOrganization
             vpt.AddDirectReport(dct);
             Position s = new Position("Salesperson");
             vps.AddDirectReport(s);
+
             return ceo;
         }
 

@@ -41,8 +41,6 @@ namespace MyOrganization
                 {
                     queue.Enqueue(subordinate);
                 }
-        
-
             }
             return null;
         }
@@ -53,19 +51,12 @@ namespace MyOrganization
             //If this code is doing too much, it can easily be shrunk so only one position can take one employee
             //but because of the loose requirements and free direction given, I've opted to use lists as a property in the Position class. The code can also be extended to add a headcount property to deny hiring
             //if headcount is reached, (would require editing MyOrganization.cs to have a headcount argument on a Position instantiate, so I will refrain).
-            
-            
             Position? PositionToHireFor = GetPosition(title);
-
             if (PositionToHireFor != null)
             {
                 PositionToHireFor.AddEmployee(new Employee(uniqueIdentifier, person));
                 uniqueIdentifier = uniqueIdentifier + 1;
-
             }
-            
-            
-
             return null;
 
         }
@@ -92,18 +83,14 @@ namespace MyOrganization
                         sb.Append(prefix + employee.GetName() + ",");
                     }
                     sb.Remove(sb.Length - 1, 1);
-                }
-                
+                }     
                 sb.Append("]");
                 sb.Append('\n');
                 foreach (Position subordinate in current_position.GetDirectReports())
                 {
                     queue.Enqueue(subordinate);
                 }
-
-
-            }
-         
+            }      
             return sb.ToString();
         }
     }
